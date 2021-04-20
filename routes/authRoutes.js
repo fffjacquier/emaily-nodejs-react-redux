@@ -9,7 +9,10 @@ module.exports = (app) => {
   );
 
   // this part contains the code query param from google
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  // then redirect to dashboard
+  app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
+    res.redirect('/surveys');
+  });
 
   app.get('/api/logout', (req, res) => {
     // function attached by passport
