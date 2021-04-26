@@ -6,6 +6,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 // first the models (used in passport)
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.MONGODB_URI);
@@ -25,6 +26,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveysRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // handle static or assets files
