@@ -9,6 +9,11 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 import App from './components/App';
 import { rootReducer } from './state';
+// dev only trick to test email is working from sendgrid
+// import axios from 'axios';
+// window.axios = axios;
+// const survey = {title: 'my title', subject: 'my test', recipients: 'fjacquier@gmail.com', body: "how much did you love using our services?"}
+// axios.post('/api/surveys', survey)
 
 const middlewares = [thunk];
 
