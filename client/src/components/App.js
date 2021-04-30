@@ -6,7 +6,7 @@ import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
-import * as actions from '../state/actions';
+import * as actions from '../actions/actions';
 
 const App = ({ fetchUser }) => {
   useEffect(() => {
