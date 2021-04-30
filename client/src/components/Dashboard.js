@@ -1,7 +1,13 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
+  useEffect(() => {
+    axios.get('/api/surveys').then((res) => {
+      console.log(res.data);
+    });
+  }, []);
   return (
     <div>
       <h1>Dashboard</h1>
