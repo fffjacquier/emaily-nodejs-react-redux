@@ -9,7 +9,27 @@ require('./models/User');
 require('./models/Survey');
 require('./services/passport');
 
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.MONGODB_URI);
+
+/* for quick testing in a node repl:
+const express = require('express');
+const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+
+const keys = require('./config/keys');
+// first the models (used in passport)
+require('./models/User');
+require('./models/Survey');
+require('./services/passport');
+
+mongoose.Promise = global.Promise;
+mongoose.connect(keys.MONGODB_URI);
+
+const Survey = mongoose.model('surveys');
+Survey.find({ title: 'test' }).then(console.log)
+*/
 
 const app = express();
 
@@ -17,7 +37,7 @@ app.use(express.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-    keys: [keys.COOKIE_KEY],
+    keys: [keys.COOKIE_KEY]
   })
 );
 
